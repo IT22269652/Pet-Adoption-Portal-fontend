@@ -1,7 +1,7 @@
 Pet Adopt Portal - Frontend
 
 Overview:
-    The Task Manager (TM) Frontend is a React-based web application that provides a user-friendly interface for managing tasks and user profiles. It is part of a full-stack MERN application, paired with a backend built using Node.js and Express.js.
+The Task Manager (TM) Frontend is a React-based web application that provides a user-friendly interface for managing tasks and user profiles. It is part of a full-stack MERN application, paired with a backend built using Node.js and Express.js.
 
 Features:
    Home Page: Welcome page with an overview of the application.

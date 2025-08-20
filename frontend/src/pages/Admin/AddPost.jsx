@@ -60,7 +60,8 @@ const AddPost = () => {
         <ul>
           <li className="mb-2"><a href="/add-post" className="hover:text-gray-300">Add Post</a></li><br></br>
           <li className="mb-2"><a href="/manage-post" className="hover:text-gray-300">Manage Posts</a></li><br></br>
-          <li className="mb-2"><a href="/manage-users" className="hover:text-gray-300">Manage Users</a></li>
+          <li className="mb-2"><a href="/manage-users" className="hover:text-gray-300">Manage Users</a></li><br></br>
+          <li className="mb-2"><a href="/applicants" className="hover:text-gray-300">Applicants</a></li>
         </ul>
       </div>
       {/* Main Content - Add Post Form */}

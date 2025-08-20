@@ -13,6 +13,7 @@ const Login = () => {
     try {
       const response = await axios.post('http://localhost:5000/api/users/login', { email, password });
       setMessage(response.data.message);
+      localStorage.setItem('user', JSON.stringify(response.data.user)); // Store user data
       setTimeout(() => {
         navigate('/');
       }, 2000);

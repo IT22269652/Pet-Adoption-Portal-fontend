@@ -1,13 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const Home = () => {
+  const [posts, setPosts] = useState([]);
+  const { type } = useParams();
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/posts");
+        const data = await response.json();
+        if (response.ok) {
+          setPosts(data);
+        }
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    };
+    fetchPosts();
+  }, []);
+
+  const filteredPosts = type
+    ? posts.filter((post) => post.type.toLowerCase() === type.toLowerCase())
+    : posts;
+
   return (
     <div className="flex flex-col min-h-screen">
       <header className="w-full">
         <img 
           src="https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
           alt="Pet Adoption Header" 
-          className="w-full h-96 object-cover object-center" 
+          className="w-full h-[650px] object-cover object-center" 
         />
       </header>
       <main className="flex-grow">
@@ -15,9 +38,34 @@ const Home = () => {
           <h1 className="text-4xl font-bold text-gray-800">Welcome to Pet Adoption Portal</h1>
           <p className="mt-4 text-lg text-gray-600">Find your perfect companion today!</p>
         </section>
+        {filteredPosts.length > 0 && (
+          <section className="max-w-6xl mx-auto p-6">
+            <h2 className="text-2xl font-bold mb-6 text-center">
+              {type ? `${type.charAt(0).toUpperCase() + type.slice(1)} Pets` : "Available Pets"}
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredPosts.map((post) => (
+                <div key={post._id} className="bg-white rounded-lg shadow-md overflow-hidden">
+                  <img src={post.image || "https://via.placeholder.com/200"} alt={post.name} className="w-full h-48 object-cover" />
+                  <div className="p-4">
+                    <h3 className="text-xl font-semibold">{post.name}</h3>
+                    <p className="text-gray-600">Type: {post.type}</p>
+                    <p className="text-gray-600">Price: ${post.price}</p>
+                    <p className="text-gray-600 mt-2">Description: {post.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+        {filteredPosts.length === 0 && (
+          <p className="text-center py-10 text-gray-600">
+            {type ? `No ${type} pets available at the moment.` : "No pets available at the moment."}
+          </p>
+        )}
       </main>
     </div>
   );
-}
+};
 
 export default Home;

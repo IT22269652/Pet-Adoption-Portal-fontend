@@ -52,6 +52,7 @@ const ManagePost = () => {
       <div className="w-1/5 bg-gray-600 text-white p-4">
         <h3 className="text-xl font-bold mb-4">Admin Panel</h3><br></br>
         <ul>
+          <li className="mb-2"><a href="/" className="hover:text-gray-300">Home Page</a></li><br></br>
           <li className="mb-2"><a href="/add-post" className="hover:text-gray-300">Add Post</a></li><br></br>
           <li className="mb-2"><a href="/manage-post" className="hover:text-gray-300">Manage Posts</a></li><br></br>
           <li className="mb-2"><a href="/manage-users" className="hover:text-gray-300">Manage Users</a></li><br></br>
@@ -74,7 +75,7 @@ const ManagePost = () => {
             </div>
             {posts.map((post) => (
               <div key={post._id} className="grid grid-cols-6 gap-4 border-b py-2 items-center">
-                <img src={post.image || "https://via.placeholder.com/50"} alt={post.name} className="w-12 h-12 object-cover" />
+                <img src={post.image ? `http://localhost:5000${post.image}` : "https://via.placeholder.com/50"} alt={post.name} className="w-12 h-12 object-cover" />
                 <span>{post.name}</span>
                 <span>{post.type}</span>
                 <span>${post.price}</span>
@@ -152,6 +153,7 @@ const ManagePost = () => {
                     <option value="cat">Cat</option>
                     <option value="bird">Bird</option>
                     <option value="rabbit">Rabbit</option>
+                    <option value="other">Other</option>
                   </select>
                 </div>
                 <div className="mb-4">
@@ -173,7 +175,7 @@ const ManagePost = () => {
                     className="w-full p-2 border rounded-lg"
                   />
                   {selectedPost.image && typeof selectedPost.image === "string" && (
-                    <img src={selectedPost.image} alt="Current" className="w-20 h-20 object-cover mt-2" />
+                    <img src={`http://localhost:5000${selectedPost.image}`} alt="Current" className="w-20 h-20 object-cover mt-2" />
                   )}
                 </div>
                 <div className="mb-4">

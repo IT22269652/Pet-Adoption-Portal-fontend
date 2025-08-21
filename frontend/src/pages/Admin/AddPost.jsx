@@ -28,6 +28,36 @@ const AddPost = () => {
       return;
     }
 
+    // Name validation (letters and spaces only, min 2 characters)
+    if (!/^[a-zA-Z\s]{2,}$/.test(formData.name)) {
+      setError("Name must contain only letters and be at least 2 characters long.");
+      return;
+    }
+
+    // Type validation (must be a valid non-empty option)
+    if (formData.type === "") {
+      setError("Please select a valid pet type.");
+      return;
+    }
+
+    // Price validation (must be a positive number)
+    if (isNaN(formData.price) || Number(formData.price) <= 0) {
+      setError("Price must be a positive number.");
+      return;
+    }
+
+    // Description validation (min 10 characters)
+    if (formData.description.length < 10) {
+      setError("Description must be at least 10 characters long.");
+      return;
+    }
+
+    // Image validation (optional, checks file type if provided)
+    if (formData.image && !["image/jpeg", "image/png", "image/jpg"].includes(formData.image.type)) {
+      setError("Image must be a JPEG, JPG, or PNG file.");
+      return;
+    }
+
     const data = new FormData();
     data.append("name", formData.name);
     data.append("type", formData.type);
@@ -58,6 +88,7 @@ const AddPost = () => {
       <div className="w-1/5 bg-gray-600 text-white p-4">
         <h3 className="text-xl font-bold mb-4">Admin Panel</h3><br></br>
         <ul>
+          <li className="mb-2"><a href="/" className="hover:text-gray-300">Home Page</a></li><br></br>
           <li className="mb-2"><a href="/add-post" className="hover:text-gray-300">Add Post</a></li><br></br>
           <li className="mb-2"><a href="/manage-post" className="hover:text-gray-300">Manage Posts</a></li><br></br>
           <li className="mb-2"><a href="/manage-users" className="hover:text-gray-300">Manage Users</a></li><br></br>
@@ -81,6 +112,7 @@ const AddPost = () => {
               <option value="Cat">Cat</option>
               <option value="Bird">Bird</option>
               <option value="Rabbit">Rabbit</option>
+              <option value="Other">Other</option>
             </select>
           </div>
           <div className="mb-4">

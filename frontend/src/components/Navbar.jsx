@@ -34,10 +34,11 @@ const Navbar = () => {
             </button>
           </form>
           <Link to="/" className="text-gray-600 hover:text-yellow-500">All Pets</Link>
-          <Link to="/cats" className="text-gray-600 hover:text-yellow-500">Cats</Link>
-          <Link to="/dogs" className="text-gray-600 hover:text-yellow-500">Dogs</Link>
-          <Link to="/birds" className="text-gray-600 hover:text-yellow-500">Birds</Link>
-          <Link to="/rabbit" className="text-gray-600 hover:text-yellow-500">Rabbits</Link>
+          <Link to="/Cat" className="text-gray-600 hover:text-yellow-500">Cats</Link>
+          <Link to="/Dog" className="text-gray-600 hover:text-yellow-500">Dogs</Link>
+          <Link to="/Bird" className="text-gray-600 hover:text-yellow-500">Birds</Link>
+          <Link to="/Rabbit" className="text-gray-600 hover:text-yellow-500">Rabbits</Link>
+          <Link to="/Other" className="text-gray-600 hover:text-yellow-500">Other</Link>
           <Link to="/admin-login" className="text-gray-600 hover:text-yellow-500">Admin Login</Link>
           <Link to="/login" className="text-gray-600 hover:text-yellow-500">Login</Link>
           <Link to="/register" className="text-gray-600 hover:text-yellow-500">Register</Link>

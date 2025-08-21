@@ -10,6 +10,8 @@ import AddPost from './pages/Admin/AddPost';
 import ManagePost from './pages/Admin/ManagePost';
 import ManageUsers from './pages/Admin/ManageUsers';
 import Profile from './pages/User/Profile';
+import Cart from './components/Cart';
+import Applicants from './pages/Admin/Applicants';
 
 function App() {
   
@@ -19,6 +21,16 @@ function App() {
         {/* Routes with Navbar and Footer */}
         <Route
           path="/"
+          element={
+            <div className="flex flex-col min-h-screen">
+              <Navbar />
+              <Home />
+              <Footer />
+            </div>
+          }
+        />
+        <Route
+          path="/:type"
           element={
             <div className="flex flex-col min-h-screen">
               <Navbar />
@@ -57,6 +69,16 @@ function App() {
             </div>
           }
         />
+         <Route
+          path="/cart"
+          element={
+            <div className="flex flex-col min-h-screen">
+              <Navbar />
+              <Cart />
+              <Footer />
+            </div>
+          }
+        />
         <Route
           path="/admin-login"
           element={
@@ -73,6 +95,7 @@ function App() {
         <Route path="/add-post" element={<AddPost />} />
         <Route path="/manage-users" element={<ManageUsers />} />
         <Route path="/manage-post" element={<ManagePost />} />
+        <Route path="/applicants" element={<Applicants />} />
       </Routes>
     </Router>
   );

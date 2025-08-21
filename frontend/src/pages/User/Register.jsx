@@ -22,8 +22,34 @@ const Register = () => {
       setError('All fields are required.');
       return;
     }
+
+    // Name validation (letters and spaces only, min 2 characters)
+    if (!/^[a-zA-Z\s]{2,}$/.test(name)) {
+      setError('Name must contain only letters and be at least 2 characters long.');
+      return;
+    }
+
+    // Email validation
     if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
       setError('Please enter a valid email address.');
+      return;
+    }
+
+    // Password validation (min 8 characters, at least one letter and one number)
+    if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)) {
+      setError('Password must be at least 8 characters long and include at least one letter and one number.');
+      return;
+    }
+
+    // Contact number validation (10 digits, numbers only)
+    if (!/^\d{10}$/.test(contactNumber)) {
+      setError('Contact number must be exactly 10 digits.');
+      return;
+    }
+
+    // Address validation (min 10 characters)
+    if (address.length < 10) {
+      setError('Address must be at least 10 characters long.');
       return;
     }
 

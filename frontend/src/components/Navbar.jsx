@@ -12,9 +12,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-md py-4">
+    <nav className="bg-gray-150 shadow-md py-4">
       <div className="container mx-auto flex items-center justify-between px-4">
-        <div className="text-xl font-semibold text-gray-800">
+        <div className="text-xl font-semibold text-gray-900">
           <Link to="/" className="hover:text-yellow-500">DreamPet</Link>
         </div>
         <div className="flex space-x-6 items-center">
@@ -33,17 +33,17 @@ const Navbar = () => {
               Search
             </button>
           </form>
-          <Link to="/" className="text-gray-600 hover:text-yellow-500">All Pets</Link>
-          <Link to="/Cat" className="text-gray-600 hover:text-yellow-500">Cats</Link>
-          <Link to="/Dog" className="text-gray-600 hover:text-yellow-500">Dogs</Link>
-          <Link to="/Bird" className="text-gray-600 hover:text-yellow-500">Birds</Link>
-          <Link to="/Rabbit" className="text-gray-600 hover:text-yellow-500">Rabbits</Link>
-          <Link to="/Other" className="text-gray-600 hover:text-yellow-500">Other</Link>
-          <Link to="/admin-login" className="text-gray-600 hover:text-yellow-500">Admin Login</Link>
-          <Link to="/login" className="text-gray-600 hover:text-yellow-500">Login</Link>
-          <Link to="/register" className="text-gray-600 hover:text-yellow-500">Register</Link>
-          <Link to="/profile" className="text-gray-600 hover:text-yellow-500">Profile</Link>
-          <Link to="/cart" className="text-gray-600 hover:text-yellow-500">Cart</Link>
+          <Link to="/" className="text-gray-900 hover:text-yellow-500">All Pets</Link>
+          <Link to="/Cat" className="text-gray-900 hover:text-yellow-500">Cats</Link>
+          <Link to="/Dog" className="text-gray-900 hover:text-yellow-500">Dogs</Link>
+          <Link to="/Bird" className="text-gray-900 hover:text-yellow-500">Birds</Link>
+          <Link to="/Rabbit" className="text-gray-900 hover:text-yellow-500">Rabbits</Link>
+          <Link to="/Other" className="text-gray-900 hover:text-yellow-500">Other</Link>
+          <Link to="/admin-login" className="text-gray-900 hover:text-yellow-500">Admin Login</Link>
+          <Link to="/login" className="text-gray-900 hover:text-yellow-500">Login</Link>
+          <Link to="/register" className="text-gray-900 hover:text-yellow-500">Register</Link>
+          <Link to="/profile" className="text-gray-900 hover:text-yellow-500">Profile</Link>
+          <Link to="/cart" className="text-gray-900 hover:text-yellow-500">Cart</Link>
         </div>
       </div>
     </nav>

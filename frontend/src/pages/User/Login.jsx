@@ -45,7 +45,7 @@ const Login = () => {
         </div>
       </div>
       <div className="w-1/2 bg-gray-200">
-        <img src="https://images.unsplash.com/photo-1548247416-ec66f4900b2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Login Image" className="w-full h-full object-cover" />
+        <img src="https://image.petmd.com/files/2023-10/syptomchcker.jpg" alt="Login Image" className="w-full h-full object-cover" />
       </div>
     </div>
   );
